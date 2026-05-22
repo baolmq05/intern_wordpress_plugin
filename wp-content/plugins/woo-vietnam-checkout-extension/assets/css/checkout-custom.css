@@ -1,0 +1,157 @@
+/* WooCommerce Vietnam Checkout Extension Styling */
+
+/* Định dạng container xác thực GPS */
+.woo-vn-ce-gps-container {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(224, 224, 224, 0.6);
+    border-radius: 12px;
+    padding: 22px;
+    margin: 25px 0;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.woo-vn-ce-gps-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(180deg, #3498db, #2ecc71);
+    border-radius: 12px 0 0 12px;
+}
+
+.woo-vn-ce-gps-title {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #2c3e50;
+    margin-top: 0 !important;
+    margin-bottom: 12px !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.5px;
+}
+
+.woo-vn-ce-gps-desc {
+    font-size: 13.5px;
+    color: #7f8c8d;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+/* Nút định vị GPS cao cấp */
+.woo-vn-ce-gps-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: #fff !important;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    outline: none;
+    width: 100%;
+    max-width: 320px;
+}
+
+.woo-vn-ce-gps-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+    background: linear-gradient(135deg, #2980b9 0%, #1f6391 100%);
+}
+
+.woo-vn-ce-gps-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(52, 152, 219, 0.2);
+}
+
+/* Trạng thái Loading GPS */
+.woo-vn-ce-gps-btn.loading {
+    background: #7f8c8d !important;
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: none;
+}
+
+.woo-vn-ce-gps-btn.loading .gps-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: gps-spin 0.8s ease-in-out infinite;
+}
+
+@keyframes gps-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Trạng thái GPS thành công */
+.woo-vn-ce-gps-btn.success {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%) !important;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+.woo-vn-ce-gps-btn.success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+}
+
+/* Banner thông báo tọa độ */
+.woo-vn-ce-gps-badge {
+    margin-top: 15px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    display: none;
+    align-items: center;
+    gap: 10px;
+    animation: slideDownFadeIn 0.4s ease-out;
+}
+
+.woo-vn-ce-gps-badge.success-badge {
+    background-color: rgba(46, 204, 113, 0.08);
+    border: 1px solid rgba(46, 204, 113, 0.2);
+    color: #27ae60;
+    display: flex;
+}
+
+.woo-vn-ce-gps-badge.error-badge {
+    background-color: rgba(231, 76, 60, 0.08);
+    border: 1px solid rgba(231, 76, 60, 0.2);
+    color: #c0392b;
+    display: flex;
+}
+
+@keyframes slideDownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustment */
+@media (max-width: 480px) {
+    .woo-vn-ce-gps-btn {
+        max-width: 100%;
+    }
+}
